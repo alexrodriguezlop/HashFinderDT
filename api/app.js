@@ -30,7 +30,7 @@ module.exports = (req, res) => {
     if(result != null)
       res.status(404).send("No se encontró."); 
       
-    res.status(200).send(result.toString())  
+    res.status(200).send(result)  
   }
   else {
     res.status(400).send('Formato incorrecto, PRUEBE:?msg="test".');
