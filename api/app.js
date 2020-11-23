@@ -23,8 +23,8 @@ module.exports = (req, res) => {
   //Captamos el parámetro
   //const { parametro = null } = req.query["msg"];
   var parametro = null; 
-  parametro = req.query["msg"];
-  alert(parametro);
+  parametro = req.query;
+
   if(parametro != null){
     result = obtener(md5(parametro));
     res.status(200).send(result)
