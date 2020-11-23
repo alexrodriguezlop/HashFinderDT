@@ -1,7 +1,7 @@
 {
   "name": "hashfinderdt",
   "version": "1.0.0",
-  "description": "Busca en una lista fecha y hora del cifrado aplicando la función hash sobre el texto",
+  "description": "Busca en una lista la fecha y hora del cifrado aplicando la función hash sobre el texto",
   "main": "src/app.js",
   "dependencies": {
     "gulp-cli": "^2.3.0"
