@@ -1,0 +1,17 @@
+{
+    "lista":
+    [
+        { 	
+            "hash": "098f6bcd4621d373cade4e832627b4f6",
+            "fecha": "22-9-2020",
+            "hora": "15:00",
+            "comentario": "test (Los mensajes no se almacenan. esto es un comentario)"
+        },
+        { 	
+            "hash": "22441d662942ba69fe4976693dabd852",
+            "fecha": "15-8-2020",
+            "hora": "17:00",
+            "comentario": "supercalifragilisticoespialidoso"
+        }
+    ]
+}
