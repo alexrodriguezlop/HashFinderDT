@@ -21,9 +21,9 @@ module.exports = (req, res) => {
   //var parametro = location.search.split('msg=')[1]
   
   //Captamos el parámetro
-  //const { parametro = null } = req.query["msg"];
-  var parametro = null; 
-  parametro = req.query["msg"];
+  const { parametro = null } = req.query["msg"];
+  //var parametro = null; 
+  //parametro = req.query["msg"];
 
   if(parametro != null){
     result = obtener(md5(parametro));
@@ -33,7 +33,7 @@ module.exports = (req, res) => {
       res.status(404).send("No se encontró.");   
   }
   else {
-    res.status(400).send('Formato incorrecto, PRUEBE: ?msg="test".');
+    res.status(400).send('Formato incorrecto, PRUEBE:?msg="test".');
   }
 }
 
