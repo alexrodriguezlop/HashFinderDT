@@ -21,9 +21,9 @@ module.exports = (req, res) => {
   //var parametro = location.search.split('msg=')[1]
   
   //Captamos el parámetro
-  const { parametro = null } = req.query["msg"];
-  //var parametro = null; 
-  //parametro = req.query["msg"];
+  //const { parametro = null } = req.query["msg"];
+  var parametro = null; 
+  parametro = req.query["msg"];
 
   if(parametro != null){
     result = obtener(md5(parametro));
