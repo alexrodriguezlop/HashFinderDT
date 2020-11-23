@@ -29,7 +29,8 @@ module.exports = (req, res) => {
     res.status(200).send(result);
 
     if(result == null)
-      res.status(404).send("No se encontró."); 
+      res.status(400).send('Formato incorrecto, PRUEBE:?msg="test".');  
+    //res.status(404).send("No se encontró."); 
  
   }
   else {
