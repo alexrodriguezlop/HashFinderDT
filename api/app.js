@@ -26,7 +26,6 @@ module.exports = (req, res) => {
 
   if(parametro != null){
     result = obtener(md5(parametro));
-    
 
     if(result === null){
       res.status(404).send("No se encontró."); 
