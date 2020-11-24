@@ -14,14 +14,13 @@ function obtener(valor){
 }
 
 
-
-
 // Función principal manejadora de petición
 module.exports = (req, res) => {
+
   //var parametro = location.search.split('msg=')[1]
-  
-  //Captamos el parámetro
   //const { parametro = null } = req.query["msg"];
+  
+   //Captamos el parámetro
   var parametro = req.query["msg"];
 
   if(parametro != null){
