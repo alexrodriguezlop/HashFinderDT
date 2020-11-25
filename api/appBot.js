@@ -21,7 +21,7 @@ module.exports = (req, res) => {
 
     const chatID = req.body.message.chat.id;
     const sentMessage = req.body.message.text;
-    console.log(req.body.message);
+    console.log(req);
 
     if(sentMessage == "/help"){
       var result = obtener(md5('test'));
