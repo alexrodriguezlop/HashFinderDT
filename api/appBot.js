@@ -30,7 +30,15 @@ module.exports = async (req, res) => {
       console.log('B');
       if(result === null){
         console.log('C');
-        res.status(404).send("No se encontró.");
+        //res.status(404).send("No se encontró.");
+
+        return res.status(200).send({
+          method: 'sendMessage',
+          chat_id: chatID,
+          text: 'dsdsdsdsdss',
+          parse_mode: null
+        })
+
         console.log('D'); 
       }
       else{
