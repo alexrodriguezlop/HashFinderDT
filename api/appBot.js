@@ -21,15 +21,20 @@ module.exports = async (req, res) => {
 
     const chatID = req.body.message.chat.id;
     const sentMessage = req.body.message.text;
+    
     console.log(req.body.message);
     
     if(sentMessage != null){
+      console.log('A');
       var result = obtener(md5(sentMessage));
-
+      console.log('B');
       if(result === null){
-        res.status(404).send("No se encontró."); 
+        console.log('C');
+        res.status(404).send("No se encontró.");
+        console.log('D'); 
       }
       else{
+        console.log('E');
         //sendMessage" -d "chat_id=8*****2&text=prueba"
         return res.status(200).send({
           method: 'sendMessage',
