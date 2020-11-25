@@ -32,7 +32,7 @@ module.exports = (req, res) => {
         //sendMessage" -d "chat_id=8*****2&text=prueba"
         var respuesta = JSON.parse('{method : "sendMessage",chat_id : chatID,text : result}');
         res.setHeader("Content-Type","application/json");
-        res.status(200).send(respuesta);
+        res.status(200).json(respuesta);
       }
       
     }
