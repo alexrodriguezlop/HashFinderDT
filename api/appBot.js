@@ -21,10 +21,10 @@ module.exports = (req, res) => {
 
     const chatID = req.body.message.chat.id;
     const sentMessage = req.body.message.text;
-    console.log(req);
+    console.log(req.body.message);
 
-    if(sentMessage == "/help"){
-      var result = obtener(md5('test'));
+    if(sentMessage != null){
+      var result = obtener(md5(sentMessage));
 
       if(result === null){
         res.status(404).send("No se encontró."); 
@@ -34,7 +34,7 @@ module.exports = (req, res) => {
         return res.status(200).send({
           method: 'sendMessage',
           chatID,
-          text: 'dsdsdsdsds',
+          text: result,
           parse_mode: 'Markdown'
         })
       }
