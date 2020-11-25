@@ -23,8 +23,8 @@ module.exports = (req, res) => {
     const sentMessage = req.body.message.text;
     console.log(req.body.message);
 
-    if(sentMessage != null){
-      var result = obtener(md5(sentMessage));
+    if(sentMessage == "/help"){
+      var result = obtener(md5('test'));
 
       if(result === null){
         res.status(404).send("No se encontró."); 
