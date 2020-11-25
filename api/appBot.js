@@ -34,7 +34,6 @@ module.exports = (req, res) => {
         return res.status(200).send({
           method: 'sendMessage',
           chatID,
-          reply_to_message_id: messageIdtoReply,
           text: result,
           parse_mode: 'Markdown'
         })
