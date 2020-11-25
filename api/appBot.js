@@ -22,7 +22,7 @@ module.exports = (req, res) => {
     const chatID = req.body.message.chat.id;
     const sentMessage = req.body.message.text;
     console.log(req.body.message);
-
+    
     if(sentMessage != null){
       var result = obtener(md5(sentMessage));
 
@@ -33,7 +33,7 @@ module.exports = (req, res) => {
         //sendMessage" -d "chat_id=8*****2&text=prueba"
         return res.status(200).send({
           method: 'sendMessage',
-          chatID,
+          chat_id: chatID,
           text: result,
           parse_mode: 'Markdown'
         })
