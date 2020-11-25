@@ -14,46 +14,12 @@ function obtener(valor){
 }
 
 
-// Función principal manejadora de petición
-module.exports = async (req, res) => {
+const { Telegraf } = require('telegraf')
 
-  if (typeof(req.body) !== 'undefined'){
-
-    const chatID = req.body.message.chat.id;
-    const sentMessage = req.body.message.text;
-    
-    console.log(req.body.message);
-    
-    if(sentMessage != null){
-      console.log('A');
-      var result = obtener(md5(sentMessage));
-      console.log('B');
-      if(result === null){
-        console.log('C');
-        //res.status(404).send("No se encontró.");
-
-        return res.status(200).send({
-          method: 'sendMessage',
-          chat_id: chatID,
-          text: 'dsdsdsdsdss',
-          parse_mode: null
-        })
-
-        console.log('D'); 
-      }
-      else{
-        console.log('E');
-        //sendMessage" -d "chat_id=8*****2&text=prueba"
-        return res.status(200).send({
-          method: 'sendMessage',
-          chat_id: chatID,
-          text: 'dsdsdsdsdss',
-          parse_mode: null
-        })
-      }
-      
-    }
-
-  }
-}
+const bot = new Telegraf(BOT_TOKEN)
+bot.start((ctx) => ctx.reply('Welcome'))
+bot.help((ctx) => ctx.reply('Send me a sticker'))
+bot.on('sticker', (ctx) => ctx.reply('👍'))
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.launch()
 

@@ -4,7 +4,8 @@
   "description": "Busca en una lista la fecha y hora del cifrado aplicando la función hash sobre el texto",
   "main": "src/app.js",
   "dependencies": {
-    "gulp-cli": "^2.3.0"
+    "gulp-cli": "^2.3.0",
+    "telegraf": "^3.38.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
