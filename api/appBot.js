@@ -21,7 +21,8 @@ module.exports = (req, res) => {
 
     const chatID = req.body.message.chat.id;
     const sentMessage = req.body.message.text;
-
+    console.log(sentMessage);
+    
     if(sentMessage != null){
       var result = obtener(md5(sentMessage));
 
