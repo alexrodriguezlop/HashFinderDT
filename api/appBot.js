@@ -30,7 +30,10 @@ module.exports = (req, res) => {
         res.status(404).send("No se encontró."); 
       }
       else{
-        res.status(200).send(result);
+        //sendMessage" -d "chat_id=8*****2&text=prueba"
+        var respuesta ={text : result,method : "sendMessage",chat_id : chatID}
+        res.setHeader("Content-Type","application/json");
+        res.status(200).send(respuesta);
       }
       
     }
