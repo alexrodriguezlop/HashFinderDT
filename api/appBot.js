@@ -15,7 +15,7 @@ function obtener(valor){
 
 
 // Función principal manejadora de petición
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
 
   if (typeof(req.body) !== 'undefined'){
 
@@ -34,8 +34,8 @@ module.exports = (req, res) => {
         return res.status(200).send({
           method: 'sendMessage',
           chat_id: chatID,
-          text: result,
-          parse_mode: 'Markdown'
+          text: 'dsdsdsdsdss',
+          parse_mode: null
         })
       }
       
