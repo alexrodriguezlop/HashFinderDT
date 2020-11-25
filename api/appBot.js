@@ -30,9 +30,13 @@ module.exports = (req, res) => {
       }
       else{
         //sendMessage" -d "chat_id=8*****2&text=prueba"
-        var respuesta = JSON.parse('{method : "sendMessage",chat_id : chatID,text : result}');
-        res.setHeader("Content-Type","application/json");
-        res.status(200).json(respuesta);
+        return res.status(200).send({
+          method: 'sendMessage',
+          chatID,
+          reply_to_message_id: messageIdtoReply,
+          text: result,
+          parse_mode: 'Markdown'
+        })
       }
       
     }
