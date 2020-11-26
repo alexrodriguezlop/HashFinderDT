@@ -27,23 +27,24 @@ module.exports = async (req, res) => {
        
     if(arg != null && arg){
       var result = obtener(md5(arg));
-
+      console.log('A');
       if(result === null){
         //Telegram espera un metodo, un identificador de chat y un mensaje.
         mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
         status = 400;
-
+        console.log('B');
         //Vercel espera cabecera especificando tipo, status y body
         //res.setHeader("Content-Type","application/json");
         //res.status(400).json(telegramRes);
       }
       else{
+        console.log('C');
         mensaje = '**Fecha:**' + result.fecha + ' **Hora:**' + result.hora;
         status = 200;
       }
     }
     const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: msgID, parse_mode: 'Markdown'};
- 
+    console.log('D');
     res.setHeader("Content-Type","application/json");
     res.status(status).json(telegramRes);
   }
