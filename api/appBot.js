@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
         //res.status(404).send("No se encontró.");
         
         //Telegram espera un metodo, un identificador de chat y un mensaje.
-        const telegramRes = {text:'Prueba', method:"sendMessage", chat_id:chatID}
+        const telegramRes = {text:'Prueba', method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id}
 
         //Vercel espera cabecera especificando le tipo, status y body
         res.setHeader("Content-Type","application/json");
