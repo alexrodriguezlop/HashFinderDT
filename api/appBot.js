@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
     
     var mensaje, status;
        
-    if(arg != null){
+    if(arg != null && arg){
       var result = obtener(md5(arg));
 
       if(result === null){
@@ -41,9 +41,9 @@ module.exports = async (req, res) => {
         status = 200;
       }
     }
-    const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
- 
-    res.setHeader("Content-Type","application/json");
-    res.status(status).json(telegramRes);
   }
+  const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
+ 
+  res.setHeader("Content-Type","application/json");
+  res.status(status).json(telegramRes);
 }
