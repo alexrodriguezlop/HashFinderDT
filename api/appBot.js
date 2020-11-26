@@ -22,16 +22,15 @@ module.exports = async (req, res) => {
     const chatID = req.body.message.chat.id;
     const arg = req.body.message.text;
     
+    var mensaje, status;
     const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
-    var status;
-
+    
     if(arg != null){
-      
       var result = obtener(md5(arg));
 
       if(result === null){
         //Telegram espera un metodo, un identificador de chat y un mensaje.
-        const mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
+        mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
         status = 400;
 
         //Vercel espera cabecera especificando tipo, status y body
