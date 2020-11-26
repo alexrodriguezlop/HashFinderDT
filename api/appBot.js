@@ -15,11 +15,11 @@ function obtener(valor){
 
 
 // Función principal manejadora de petición
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
 
   if (typeof(req.body) !== 'undefined'){
 
-    //const chatID = req.body.message.chat.id;
+    const chatID = req.body.message.chat.id;
     const cadena = req.body.message.text;
     const msgID = req.body.message.message_id;
 
@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
       default:
         mensaje = 'Comando desconocido, use */help*';
     }
-    
+
     const telegramRes = {
       text:mensaje, 
       method:"sendMessage", 
