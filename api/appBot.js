@@ -43,10 +43,13 @@ module.exports = async (req, res) => {
       else{
         console.log('E');
         //sendMessage" -d "chat_id=8*****2&text=prueba"
-        return res.status(200).send({
-          method: 'sendMessage',
-          chat_id: chatID,
-          text: 'dsdsdsdsdss',
+        res.setHeader("Content-Type","application/json");
+
+        return res.status(200).json({
+          text:'Prueba22', 
+          method:"sendMessage", 
+          chat_id:chatID, 
+          reply_to_message_id: req.body.message.message_id,
           parse_mode: null
         })
       }
