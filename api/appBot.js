@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
     const chatID = req.body.message.chat.id;
     const sentMessage = req.body.message.text;
     
-    console.log(req.body.message);
+    console.log(req.body);
     
     if(sentMessage != null){
       console.log('A');
