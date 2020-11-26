@@ -16,7 +16,9 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
+  console.log(req.body.message);
   if(req.body.message != undefined){
+    console.log(req.body.message);
     const chatID = req.body.message.chat.id;
     const cadena = req.body.message.text;
     const msgID = req.body.message.message_id;
@@ -47,12 +49,10 @@ module.exports = async (req, res) => {
           mensaje = 'No ha introducido el texto a buscar';
         }
         break;
-
       // /HELP
       case '/help':
         mensaje = 'Para buscar usa la orden * /buscar* seguida del texto';
         break;
-
       // Otro caso    
       default:
         mensaje = 'Comando desconocido, use * /help*';
