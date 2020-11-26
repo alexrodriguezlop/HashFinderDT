@@ -34,8 +34,8 @@ module.exports = async (req, res) => {
         //res.status(404).send("No se encontró.");
         
         //Telegram espera un metodo, un identificador de chat y un mensaje.
-        const mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*'
-        const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'}
+        const mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
+        const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
 
         //Vercel espera cabecera especificando le tipo, status y body
         res.setHeader("Content-Type","application/json");
@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
         //sendMessage" -d "chat_id=8*****2&text=prueba"
         
 
-        return res.setHeader("Content-Type","application/json").res.status(200).json({
+        return res.setHeader("Content-Type","application/json").status(200).json({
           text:'Prueba22', 
           method:"sendMessage", 
           chat_id:chatID, 
