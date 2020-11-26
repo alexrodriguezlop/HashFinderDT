@@ -43,9 +43,15 @@ module.exports = async (req, res) => {
         status = 200;
       }
     }
-    const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: msgID, parse_mode: 'Markdown'};
+    const telegramRes = {
+                          text:mensaje, 
+                          method:"sendMessage", 
+                          chat_id:chatID, 
+                          reply_to_message_id: msgID, 
+                          parse_mode: 'Markdown'
+                        };
     console.log('D');
     res.setHeader("Content-Type","application/json");
-    res.status(status).json(telegramRes);
+    res.status(200).json(telegramRes);
   }
 }
