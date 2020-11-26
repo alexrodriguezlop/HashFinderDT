@@ -31,15 +31,11 @@ module.exports = async (req, res) => {
       if(result === null){
         console.log('C');
         //res.status(404).send("No se encontrĂł.");
-
-        return res.status(200).res.json({
-          body: {
-                  method: 'sendMessage',
-                  chat_id: chatID,
-                  text: 'dsdsdsdsdss'
-          }
-        })
-
+        return {
+          statusCode: 200,
+          body: JSON.stringify({text: 'wewewewewewew', method: 'sendMessage', chat_id: chatID}),
+          headers:{'Content-Type': 'application/json'}
+        }    
       }
       else{
         console.log('E');
