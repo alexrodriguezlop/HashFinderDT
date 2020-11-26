@@ -24,8 +24,8 @@ module.exports = async (req, res) => {
     const msgID = req.body.message.message_id;
     
     var mensaje, status;
-       
-    if(arg != null && arg){
+    console.log(arg);
+    if(arg != null){
       var result = obtener(md5(arg));
       console.log('A');
       if(result === null){
