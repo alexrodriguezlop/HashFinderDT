@@ -45,8 +45,8 @@ module.exports = async (req, res) => {
         console.log('E');
         //sendMessage" -d "chat_id=8*****2&text=prueba"
         
-
-        return res.setHeader("Content-Type","application/json").status(200).json({
+        res.setHeader("Content-Type","application/json")
+        return res.status(200).json({
           text:'Prueba22', 
           method:"sendMessage", 
           chat_id:chatID, 
