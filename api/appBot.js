@@ -31,6 +31,7 @@ module.exports = async (req, res) => {
     console.log(arg);
     console.log(clave);
   }
+}
 /*
     const chatID = req.body.message.chat.id;
     const cadena = req.body.message.text;
@@ -116,4 +117,3 @@ module.exports = async (req, res) => {
     res.setHeader("Content-Type","application/json");
     res.status(200).json(telegramRes);
   }*/
-
