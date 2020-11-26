@@ -16,23 +16,7 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
-
-  if (typeof(req.body.message) !== 'undefined'){
-
-    const chatID = req.body.message.chat.id;
-    const cadena = req.body.message.text;
-    const msgID = req.body.message.message_id;
-
-    const arg = cadena.slice(0, 7).toLowerCase();
-    const clave = cadena.slice(7, cadena.length); 
-    var mensaje;
-
-    console.log(req.body.message);
-    console.log(arg);
-    console.log(clave);
-  }
-}
-/*
+  if(req.body != undefined){
     const chatID = req.body.message.chat.id;
     const cadena = req.body.message.text;
     const msgID = req.body.message.message_id;
@@ -82,7 +66,6 @@ module.exports = async (req, res) => {
     res.status(200).json(telegramRes);
   }
 }
-*/
 
 
 /*
