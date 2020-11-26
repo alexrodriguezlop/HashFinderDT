@@ -20,27 +20,34 @@ module.exports = async (req, res) => {
   if (typeof(req.body) !== 'undefined'){
 
     const chatID = req.body.message.chat.id;
-    const arg = req.body.message.text;
+    const cadena = req.body.message.text;
     const msgID = req.body.message.message_id;
-    
-    var mensaje, status;
+
+    const arg = cadena.slice(0, 7).toLowerCase();
+    const clave = cadena.slice(7, cadena.length); 
+    var mensaje;
+
     console.log(arg);
-    if(arg != null){
-      var result = obtener(md5(arg));
+    console.log(clave);
+
+    if(arg == '\buscar' && clave != ''){
+      var result = obtener(md5(clave));
+
       console.log('A');
+
       if(result === null){
         //Telegram espera un metodo, un identificador de chat y un mensaje.
         mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
-        status = 400;
+
         console.log('B');
+
         //Vercel espera cabecera especificando tipo, status y body
         //res.setHeader("Content-Type","application/json");
         //res.status(400).json(telegramRes);
       }
       else{
         console.log('C');
-        mensaje = '**Fecha:**' + result.fecha + ' **Hora:**' + result.hora;
-        status = 200;
+        mensaje = '*Fecha:* ' + result.fecha + ' *Hora:* ' + result.hora;
       }
     }
     const telegramRes = {
