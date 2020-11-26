@@ -16,7 +16,7 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
-  console.log(req.body);
+  console.log(req);
   if(req.body.message != undefined){
     const chatID = req.body.message.chat.id;
     const cadena = req.body.message.text;
