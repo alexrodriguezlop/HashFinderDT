@@ -30,6 +30,42 @@ module.exports = async (req, res) => {
     console.log(arg);
     console.log(clave);
 
+
+    switch(arg) {
+      case '/buscar':
+        if(clave != ''){
+          var result = obtener(md5(clave));
+    
+          if(result === null){
+            //Telegram espera un metodo, un identificador de chat y un mensaje.
+            mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
+          }
+          else{
+            mensaje = '*Fecha:* ' + result.fecha + ' *Hora:* ' + result.hora;
+          }
+        }
+        break;
+      case '/help':
+        mensaje = 'Para buscar usa la orden */buscar* seguida del texto';
+        break;
+
+      default:
+        mensaje = 'Comando desconocido, use */help*';
+    }
+    const telegramRes = {
+      text:mensaje, 
+      method:"sendMessage", 
+      chat_id:chatID, 
+      reply_to_message_id: msgID, 
+      parse_mode: 'Markdown'
+    };
+
+    res.setHeader("Content-Type","application/json");
+    res.status(200).json(telegramRes);
+  }
+}
+
+/*
     if(arg == '\buscar' && clave != ''){
       var result = obtener(md5(clave));
 
@@ -60,5 +96,5 @@ module.exports = async (req, res) => {
     console.log('D');
     res.setHeader("Content-Type","application/json");
     res.status(200).json(telegramRes);
-  }
-}
+  }*/
+
