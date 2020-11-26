@@ -20,10 +20,14 @@ const { Telegraf } = require('telegraf');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
-  ctx.reply('Welcome')
+  //ctx.reply('Welcome')
+  console.log(ctx);
+  bot.telegram.sendMessage(chatId, 'Mensaje de prueba');
 });
 
+/*
 //telegraf.handleUpdate(rawUpdate, [webhookResponse])
 module.exports = async (req, res) => {
   telegraf.handleUpdate(ctx, res);
 }
+*/
