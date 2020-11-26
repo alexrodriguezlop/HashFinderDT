@@ -30,6 +30,19 @@ module.exports = async (req, res) => {
     console.log(req.body.message);
     console.log(arg);
     console.log(clave);
+  }
+/*
+    const chatID = req.body.message.chat.id;
+    const cadena = req.body.message.text;
+    const msgID = req.body.message.message_id;
+
+    const arg = cadena.slice(0, 7).toLowerCase();
+    const clave = cadena.slice(7, cadena.length); 
+    var mensaje;
+
+    console.log(req.body.message);
+    console.log(arg);
+    console.log(clave);
 
 
     switch(arg) {
@@ -49,11 +62,11 @@ module.exports = async (req, res) => {
         }
         break;
       case '/help':
-        mensaje = 'Para buscar usa la orden */buscar* seguida del texto';
+        mensaje = 'Para buscar usa la orden * /buscar* seguida del texto';
         break;
 
       default:
-        mensaje = 'Comando desconocido, use */help*';
+        mensaje = 'Comando desconocido, use * /help*';
     }
 
     const telegramRes = {
@@ -68,6 +81,8 @@ module.exports = async (req, res) => {
     res.status(200).json(telegramRes);
   }
 }
+*/
+
 
 /*
     if(arg == '\buscar' && clave != ''){
