@@ -20,42 +20,30 @@ module.exports = async (req, res) => {
   if (typeof(req.body) !== 'undefined'){
 
     const chatID = req.body.message.chat.id;
-    const sentMessage = req.body.message.text;
+    const arg = req.body.message.text;
     
-    console.log(req.body);
-    
-    if(sentMessage != null){
-      console.log('A');
-      var result = obtener(md5(sentMessage));
-      console.log('B');
+    const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
+    var status;
+
+    if(arg != null){
+      
+      var result = obtener(md5(arg));
+
       if(result === null){
-        console.log('C');
-        //https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects
-        //res.status(404).send("No se encontró.");
-        
         //Telegram espera un metodo, un identificador de chat y un mensaje.
         const mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
-        const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
+        status = 400;
 
-        //Vercel espera cabecera especificando le tipo, status y body
-        res.setHeader("Content-Type","application/json");
-        res.status(200).json(telegramRes);
+        //Vercel espera cabecera especificando tipo, status y body
+        //res.setHeader("Content-Type","application/json");
+        //res.status(400).json(telegramRes);
       }
       else{
-        console.log('E');
-        //sendMessage" -d "chat_id=8*****2&text=prueba"
-        
-        res.setHeader("Content-Type","application/json");
-        return res.status(200).json({
-          text:'Prueba22', 
-          method:"sendMessage", 
-          chat_id:chatID, 
-          reply_to_message_id: req.body.message.message_id,
-          parse_mode: null
-        })
+        mensaje = '**Fecha:**' + result.fecha + ' **Hora:**' + result.hora;
+        status = 200;
       }
-      
     }
-
+    res.setHeader("Content-Type","application/json");
+    res.status(status).json(telegramRes);
   }
 }
