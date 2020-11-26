@@ -21,6 +21,7 @@ module.exports = async (req, res) => {
 
     const chatID = req.body.message.chat.id;
     const arg = req.body.message.text;
+    const msgID = req.body.message.message_id;
     
     var mensaje, status;
        
@@ -41,9 +42,9 @@ module.exports = async (req, res) => {
         status = 200;
       }
     }
-  }
-  const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: req.body.message.message_id, parse_mode: 'Markdown'};
+    const telegramRes = {text:mensaje, method:"sendMessage", chat_id:chatID, reply_to_message_id: msgID, parse_mode: 'Markdown'};
  
-  res.setHeader("Content-Type","application/json");
-  res.status(status).json(telegramRes);
+    res.setHeader("Content-Type","application/json");
+    res.status(status).json(telegramRes);
+  }
 }
