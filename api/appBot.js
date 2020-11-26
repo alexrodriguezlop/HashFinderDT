@@ -23,6 +23,7 @@ bot.start((ctx) => {
   ctx.reply('Welcome')
 });
 
+//telegraf.handleUpdate(rawUpdate, [webhookResponse])
 module.exports = async (req, res) => {
-  
+  telegraf.handleUpdate(ctx, res);
 }
