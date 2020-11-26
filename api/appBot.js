@@ -37,12 +37,14 @@ module.exports = async (req, res) => {
           var result = obtener(md5(clave));
     
           if(result === null){
-            //Telegram espera un metodo, un identificador de chat y un mensaje.
             mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
           }
           else{
             mensaje = '*Fecha:* ' + result.fecha + ' *Hora:* ' + result.hora;
           }
+        }
+        else{
+          mensaje = 'No ha introducido el texto a buscar';
         }
         break;
       case '/help':
