@@ -25,6 +25,7 @@ bot.start((ctx) => {
   bot.telegram.sendMessage(chatId, 'Mensaje de prueba');
 });
 
+module.exports = bot;
 /*
 //telegraf.handleUpdate(rawUpdate, [webhookResponse])
 module.exports = async (req, res) => {
