@@ -14,21 +14,45 @@ function obtener(valor){
 }
 
 
-const token = process.env.BOT_TOKEN;
-
-const { Telegraf } = require('telegraf');
-const bot = new Telegraf(process.env.BOT_TOKEN);
-
-bot.start((ctx) => {
-  //ctx.reply('Welcome')
-  console.log(ctx);
-  bot.telegram.sendMessage(chatId, 'Mensaje de prueba');
-});
-
-module.exports = bot;
-/*
-//telegraf.handleUpdate(rawUpdate, [webhookResponse])
+// FunciĂłn principal manejadora de peticiĂłn
 module.exports = async (req, res) => {
-  telegraf.handleUpdate(ctx, res);
+
+  if (typeof(req.body) !== 'undefined'){
+
+    const chatID = req.body.message.chat.id;
+    const sentMessage = req.body.message.text;
+    
+    console.log(req.body.message);
+    
+    if(sentMessage != null){
+      console.log('A');
+      var result = obtener(md5(sentMessage));
+      console.log('B');
+      if(result === null){
+        console.log('C');
+        //res.status(404).send("No se encontrĂł.");
+
+        return res.status(200).res.json({
+          body: {
+                  method: 'sendMessage',
+                  chat_id: chatID,
+                  text: 'dsdsdsdsdss'
+          }
+        })
+
+      }
+      else{
+        console.log('E');
+        //sendMessage" -d "chat_id=8*****2&text=prueba"
+        return res.status(200).send({
+          method: 'sendMessage',
+          chat_id: chatID,
+          text: 'dsdsdsdsdss',
+          parse_mode: null
+        })
+      }
+      
+    }
+
+  }
 }
-*/
