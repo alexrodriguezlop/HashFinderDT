@@ -14,7 +14,7 @@ function obtener(valor){
 }
 
 
-// FunciĂłn principal manejadora de peticiĂłn
+// Función principal manejadora de petición
 module.exports = async (req, res) => {
 
   if (typeof(req.body) !== 'undefined'){
@@ -30,12 +30,15 @@ module.exports = async (req, res) => {
       console.log('B');
       if(result === null){
         console.log('C');
-        //res.status(404).send("No se encontrĂł.");
-        return {
-          statusCode: 200,
-          body: JSON.stringify({text: 'wewewewewewew', method: 'sendMessage', chat_id: chatID}),
-          headers:{'Content-Type': 'application/json'}
-        }    
+        //https://vercel.com/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects
+        //res.status(404).send("No se encontró.");
+        
+        //Telegram espera un metodo, un identificador de chat y un mensaje.
+        const telegramRes = {text:'Prueba', method:"sendMessage", chat_id:IDchat}
+
+        //Vercel espera cabecera especificando le tipo, status y body
+        res.setHeader("Content-Type","application/json");
+        res.status(200).json(telegramRes);
       }
       else{
         console.log('E');
