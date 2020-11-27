@@ -39,7 +39,8 @@ module.exports = async (req, res) => {
       case '/buscar':
         if(clave != ''){
           var result = obtener(md5(clave));
-    
+          console.log(result);
+          
           if(result === null){
             mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
           }
