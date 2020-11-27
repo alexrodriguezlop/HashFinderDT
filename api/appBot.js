@@ -30,7 +30,6 @@ module.exports = async (req, res) => {
     const cadena = req.body.edited_message.text;
   }
 
-  if(chatID != undefined){
     const arg = cadena.slice(0, 7).toLowerCase();
     const clave = cadena.slice(7, cadena.length); 
     var mensaje = '';
@@ -79,7 +78,4 @@ module.exports = async (req, res) => {
 
     res.setHeader("Content-Type","application/json");
     res.status(200).json(telegramRes);
-  }
-  res.setHeader("text/html; charset=utf-8");
-  res.status(200).send('');
 }
