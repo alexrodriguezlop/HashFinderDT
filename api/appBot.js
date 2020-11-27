@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
   if(req.body.message != undefined){
     chatID = req.body.message.chat.id;
     msgID = req.body.message.message_id;
-   cadena = req.body.message.text;
+    cadena = req.body.message.text;
   }
   else{
     if(req.body.edited_message != undefined){
@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
   }
 
   arg = cadena.slice(0, 7).toLowerCase();
-  lave = cadena.slice(7, cadena.length); 
+  clave = cadena.slice(7, cadena.length); 
   
 
   switch(arg) {
