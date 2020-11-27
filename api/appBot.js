@@ -69,5 +69,6 @@ module.exports = async (req, res) => {
     res.setHeader("Content-Type","application/json");
     res.status(200).json(telegramRes);
   }
+  res.setHeader("text/html; charset=utf-8");
   res.status(200).send('');
 }
