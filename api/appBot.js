@@ -16,10 +16,18 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
-  if(req.body.edited_message != undefined){
+  if(req.body.message != undefined){
+    const chatID = req.body.message.chat.id;
+    const msgID = req.body.message.message_id;
+    const cadena = req.body.message.text;
+  }
+  else{
     const chatID = req.body.edited_message.chat.id;
     const msgID = req.body.edited_message.message_id;
     const cadena = req.body.edited_message.text;
+  }
+
+  if(chatID != undefined){
     const arg = cadena.slice(0, 7).toLowerCase();
     const clave = cadena.slice(7, cadena.length); 
     var mensaje = '';
