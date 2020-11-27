@@ -6,9 +6,9 @@ module.exports = async (req, res) => {
   console.log('Versión');
   console.log(req.body);
 
-  if(req.body.message != undefined){
-    const chatID = req.body.message.chat.id;
-    const msgID = req.body.message.message_id;
+  if(req.body.edited_message != undefined){
+    const chatID = req.body.edited_message.chat.id;
+    const msgID = req.body.edited_message.message_id;
 
     var mensaje = 'Probando';
 
