@@ -34,32 +34,7 @@ module.exports = async (req, res) => {
     console.log(req.body.message);
 
 
-    switch(arg) {
-      // /BUSCAR
-      case '/buscar':
-        if(clave != ''){
-          var result = obtener(md5('test'));
-          console.log(result);
 
-          if(result === null){
-            mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
-          }
-          else{
-            mensaje = '*Fecha:* ' + result.fecha + ' *Hora:* ' + result.hora;
-          }
-        }
-        else{
-          mensaje = 'No ha introducido el texto a buscar';
-        }
-      break;
-      // /HELP
-      case '/help':
-        mensaje = 'Para buscar usa la orden */buscar* seguida del texto';
-      break;
-      // Otro caso    
-      default:
-        mensaje = 'Comando desconocido, use */help*';
-    }
 
 
     const telegramRes = {
