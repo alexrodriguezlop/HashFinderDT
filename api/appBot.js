@@ -20,14 +20,14 @@ module.exports = async (req, res) => {
 
   var chatID, msgID, mensaje, telegramRes;
   
-  if(req.body.mensaje !== undefined){
+  if(req.body.message != undefined){
     chatID = req.body.message.chat.id;
     msgID = req.body.message.message_id;
 
     mensaje = 'jo';
   }
   else{
-    if(req.body.edited_message !== undefined){
+    if(req.body.edited_message != undefined){
       chatID = req.body.edited_message.chat.id;
       msgID = req.body.edited_message.message_id;
 
