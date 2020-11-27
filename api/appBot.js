@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
         if(clave != ''){
           var result = obtener(md5(clave));
           console.log(result);
-          
+
           if(result === null){
             mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
           }
@@ -51,11 +51,11 @@ module.exports = async (req, res) => {
         else{
           mensaje = 'No ha introducido el texto a buscar';
         }
-        break;
+      break;
       // /HELP
       case '/help':
         mensaje = 'Para buscar usa la orden */buscar* seguida del texto';
-        break;
+      break;
       // Otro caso    
       default:
         mensaje = 'Comando desconocido, use */help*';
@@ -73,5 +73,5 @@ module.exports = async (req, res) => {
     res.setHeader("Content-Type","application/json");
     res.status(200).json(telegramRes);
   }
-
+  res.status(200);
 }
