@@ -3,6 +3,7 @@
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
+  console.log('Versión');
   console.log(req.body);
 
   if(req.body.message != undefined){
