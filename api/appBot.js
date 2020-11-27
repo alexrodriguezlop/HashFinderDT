@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
       // /BUSCAR
       case '/buscar':
         if(clave != ''){
-          var result = obtener(md5(clave));
+          var result = obtener(md5('test'));
           console.log(result);
 
           if(result === null){
