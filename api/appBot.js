@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
   }
 
   arg = cadena.slice(0, 7).toLowerCase();
-  clave = cadena.slice(7, cadena.length); 
+  clave = cadena.slice(8, cadena.length); 
   
 
   switch(arg) {
