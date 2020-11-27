@@ -26,8 +26,11 @@ module.exports = async (req, res) => {
   else{
     console.log('B' + req.body.edited_message);
     const chatID = req.body.edited_message.chat.id;
+    console.log(chatID);
     const msgID = req.body.edited_message.message_id;
+    console.log(msgID);
     const cadena = req.body.edited_message.text;
+    console.log(cadena);
   }
 
     const arg = cadena.slice(0, 7).toLowerCase();
