@@ -15,6 +15,9 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
+  console.log( req.body.message);
+  console.log( req.body.edited_message);
+
   var chatID, msgID, mensaje, telegramRes;
   
   if(req.body.mensaje != undefined){
@@ -29,7 +32,7 @@ module.exports = async (req, res) => {
 
     mensaje = 'jaaa';
   }
-  
+
   telegramRes = {
     text:mensaje, 
     method:"sendMessage", 
