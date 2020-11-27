@@ -19,8 +19,8 @@ module.exports = async (req, res) => {
   console.log(req.body.message);
   console.log(req.body.edited_message);
 
-  const chatID = req.body.edited_message.chat.id;
-  const msgID = req.body.edited_message.message_id;
+  const chatID = req.body.message.chat.id;
+  const msgID = req.body.message.message_id;
   
   var mensaje = 'jo';
   
