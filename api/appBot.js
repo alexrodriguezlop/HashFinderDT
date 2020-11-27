@@ -15,28 +15,32 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
+  var chatID, msgID, mensaje, telegramRes;
+  
+  if(req.body.mensaje != undefined){
+    chatID = req.body.message.chat.id;
+    msgID = req.body.message.message_id;
 
-  console.log(req.body.message);
-  console.log(req.body.edited_message);
+    mensaje = 'jo';
+  }
+  else{
+    chatID = req.body.edited_message.chat.id;
+    msgID = req.body.edited_message.message_id;
 
-  const chatID = req.body.message.chat.id;
-  const msgID = req.body.message.message_id;
+    mensaje = 'jaaa';
+  }
   
-  var mensaje = 'jo';
-  
-  
-  const telegramRes = {
+  telegramRes = {
     text:mensaje, 
     method:"sendMessage", 
     chat_id:chatID, 
     reply_to_message_id: msgID, 
     parse_mode: 'Markdown'
   };
-  
+
   res.setHeader("Content-Type","application/json");
   res.status(200).json(telegramRes);
-  }
-
+}
 
   /*
     const chatID = req.body.message.chat.id;
