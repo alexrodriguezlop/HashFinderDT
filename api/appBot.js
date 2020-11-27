@@ -16,7 +16,7 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
-  if(req.body.message != undefined){
+  if(req.body.edited_message != undefined){
     const chatID = req.body.edited_message.chat.id;
     const msgID = req.body.edited_message.message_id;
     const cadena = req.body.edited_message.text;
@@ -69,5 +69,5 @@ module.exports = async (req, res) => {
     res.setHeader("Content-Type","application/json");
     res.status(200).json(telegramRes);
   }
-  res.status(200);
+  res.status(200).send('');
 }
