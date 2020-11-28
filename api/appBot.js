@@ -15,8 +15,6 @@ function obtener(valor){
 
 // Función principal manejadora de petición
 module.exports = async (req, res) => {
-  console.log( req.body.message);
-  console.log( req.body.edited_message);
 
   var chatID, msgID, mensaje, telegramRes, cadena, arg, clave;
   
@@ -26,11 +24,9 @@ module.exports = async (req, res) => {
     cadena = req.body.message.text;
   }
   else{
-    if(req.body.edited_message != undefined){
-      chatID = req.body.edited_message.chat.id;
-      msgID = req.body.edited_message.message_id;
-      cadena = req.body.edited_message.text;
-    }
+    chatID = req.body.edited_message.chat.id;
+    msgID = req.body.edited_message.message_id;
+    cadena = req.body.edited_message.text;
   }
 
   arg = cadena.slice(0, 7).toLowerCase();
