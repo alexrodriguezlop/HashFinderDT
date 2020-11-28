@@ -56,7 +56,7 @@ module.exports = async (req, res) => {
       break;
     // Otro caso    
     default:
-      mensaje = '\xA0 Comando desconocido, use */help*';
+      mensaje = '\u{26A0} Comando desconocido, use */help*';
   }
 
   telegramRes = {
