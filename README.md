@@ -23,6 +23,25 @@ Posteriormente desde **@BotFather** podemos establecer otros parámetros de nues
 
 ![](img/A3.png)
 
+Podemos comprobar que el bot recive mensajes usando CURL:
+
+```
+curl -X POST "https://api.telegram.org/botTOKEN/sendMessage" -d "chat_id=**440**&text=Prueba"
+```
+
+Una vez terminado todo lo anterior vamos a establecer el **webhook**, para ello accederemos a la siguiente url utilizando la función **setWebhook**:
+
+```
+https://api.telegram.org/botTOKEN/setWebhook?url=https://hash-finder-dt.vercel.app/api/appBot
+
+```
+La respuesta será:
+
+```
+{"ok":true,"result":true,"description":"Webhook is already set"}
+```
+
+
 #### Código:
 
 Para llevar a cabo la comunicación necesitamos una serie de datos:
