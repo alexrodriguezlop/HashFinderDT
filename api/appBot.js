@@ -52,7 +52,7 @@ module.exports = async (req, res) => {
       break;
     // /HELP
     case '/help':
-      mensaje = '\u{1F50D} Para buscar use la orden */buscar* seguida del texto \n **Ejemplo:* */buscar test*';
+      mensaje = '\u{1F50D} Para buscar use la orden */buscar* seguida del texto. **Ejemplo:* */buscar test*';
       break;
     // Otro caso    
     default:
