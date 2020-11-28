@@ -40,19 +40,19 @@ module.exports = async (req, res) => {
         var result = obtener(md5(clave));
   
         if(result === null){
-          mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
+          mensaje = '\u{2716} *Su mensaje no ha sido cifrado y por tanto no hay registros*';
         }
         else{
-          mensaje = '\x9F *Fecha:* ' + result.fecha + ' \x95 *Hora:* ' + result.hora;
+          mensaje = '\u{1F4C6} *Fecha:* ' + result.fecha + ' \u{231A} *Hora:* ' + result.hora;
         }
       }
       else{
-        mensaje = '\x98 No ha introducido el texto a buscar ';
+        mensaje = '\u{1F605} *No ha introducido el texto a buscar!* ';
       }
       break;
     // /HELP
     case '/help':
-      mensaje = 'Para buscar use la orden */buscar* seguida del texto \n **Ejemplo:* */buscar test*';
+      mensaje = '\u{1F50D} Para buscar use la orden */buscar* seguida del texto \n **Ejemplo:* */buscar test*';
       break;
     // Otro caso    
     default:
