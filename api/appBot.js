@@ -43,20 +43,20 @@ module.exports = async (req, res) => {
           mensaje = '*Su mensaje no ha sido cifrado y por tanto no hay registros*';
         }
         else{
-          mensaje = '*Fecha:* ' + result.fecha + ' *Hora:* ' + result.hora;
+          mensaje = '\x9F *Fecha:* ' + result.fecha + ' \x95 *Hora:* ' + result.hora;
         }
       }
       else{
-        mensaje = 'No ha introducido el texto a buscar';
+        mensaje = '\x98 No ha introducido el texto a buscar ';
       }
       break;
     // /HELP
     case '/help':
-      mensaje = 'Para buscar usa la orden * /buscar* seguida del texto';
+      mensaje = 'Para buscar use la orden */buscar* seguida del texto \n **Ejemplo:* */buscar test*';
       break;
     // Otro caso    
     default:
-      mensaje = 'Comando desconocido, use * /help*';
+      mensaje = '\xA0 Comando desconocido, use */help*';
   }
 
   telegramRes = {
